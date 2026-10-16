@@ -1,3 +1,4 @@
 Вступ до HTML
 git config --global user.name "Sh2rkWhite"
 git config --global user.email "sh2rkwhite@gmail.com"
+HTML - Hypertext Markup Languages - Гіпертекстова мова розмітки
