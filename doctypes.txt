@@ -1,0 +1,33 @@
+ВИПИСКА ПРО ТИПИ (ВЕРСІЇ) HTML У ТЕЗІ <!DOCTYPE>
+
+1. HTML5 (Сучасний стандарт)
+   • Код: <!DOCTYPE html>
+   • Опис: Стандарт для сучасного веб. Не прив'язаний до SGML, має максимально простий синтаксис і не чутливий до регістра.
+
+2. HTML 4.01 Strict
+   • Код: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+   • Опис: Сувора версія HTML 4.01, яка не допускає використання застарілих тегів форматування (всі стилі мають задаватися через CSS).
+
+3. HTML 4.01 Transitional
+   • Код: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+   • Опис: Перехідна версія, яка дозволяє використовувати застарілі елементи та атрибути (наприклад, для вирівнювання чи шрифтів).
+
+4. HTML 4.01 Frameset
+   • Код: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+   • Опис: Використовується для документів, що розділяють екран на кілька незалежних фреймів.
+
+5. XHTML 1.0 Strict
+   • Код: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+   • Опис: Сувора версія XHTML 1.0 — мова HTML, переписана за суворими правилами синтаксису XML.
+
+6. XHTML 1.0 Transitional
+   • Код: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   • Опис: Перехідна версія XHTML із дозволом на використання застарілих елементів.
+
+7. XHTML 1.0 Frameset
+   • Код: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+   • Опис: Версія XHTML для сторінок із фреймами.
+
+8. XHTML 1.1
+   • Код: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+   • Опис: Модульна версія XHTML із можливістю підключення додаткових модулів.
