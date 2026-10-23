@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        body {
+            /* Обои рабочего стола Windows 11 */
+            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: default;
+        }
+
+        /* Панель задач снизу (для реалистичности рабочего стола) */
+        .taskbar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            z-index: 5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .taskbar-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: background 0.2s;
+        }
+
+        .taskbar-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #0078d7, #00bcf2);
+        }
+
+        .tray-clock {
+            position: absolute;
+            right: 15px;
+            color: white;
+            font-size: 12px;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        /* Само окно винлокера по центру */
+        .winlocker-window {
+            width: 580px;
+            background: #f0f0f0;
+            color: #000000;
+            border: 1px solid #707070;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .win-titlebar {
+            background: #ffffff;
+            padding: 8px 12px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        .win-titlebar-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .win-buttons {
+            display: flex;
+            gap: 15px;
+            color: #555;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .win-content {
+            padding: 25px;
+            background: #f9f9f9;
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .ransom-box {
+            background: #ffebee;
+            border-left: 4px solid #d32f2f;
+            padding: 10px;
+            margin: 12px 0;
+            font-size: 12px;
+            color: #b71c1c;
+        }
+
+        .timer-box {
+            background: #eeeeee;
+            padding: 10px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .timer {
+            font-size: 22px;
+            color: #d32f2f;
+            font-weight: bold;
+            font-family: monospace;
+            margin-top: 2px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 7px 10px;
+            border: 1px solid #a0a0a0;
+            font-size: 13px;
+            outline: none;
+            background: #fff;
+        }
+
+        input[type="text"]:focus {
+            border-color: #0078d7;
+        }
+
+        button {
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 0 18px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005a9e;
+        }
+
+        /* Невидимый щит для перехода в полный экран по первому клику */
+        .click-shield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="click-shield" id="shield" onclick="goFullscreen()"></div>
+
+    <!-- Имитация рабочего стола на заднем плане -->
+    <div class="taskbar">
+        <div class="taskbar-item start-btn" title="Пуск">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="white"><path d="M0 0h8v8H0V0zm10 0h8v8h-8V0zM0 10h8v8H0v-8zm10 0h8v8h-8v-8z"/></svg>
+        </div>
+        <div class="taskbar-item" title="Edge">🌐</div>
+        <div class="taskbar-item" title="Проводник">📁</div>
+        
+        <div class="tray-clock" id="clock">
+            19:42<br>23.10.2026
+        </div>
+    </div>
+
+    <!-- Окно винлокера поверх стола -->
+    <div class="winlocker-window">
+        <div class="win-titlebar">
+            <div class="win-titlebar-left">
+                <span>⚠️</span>
+                <span>Critical System Error - Windows Defender</span>
+            </div>
+            <div class="win-buttons">
+                <span>🗕</span>
+                <span>🗖</span>
+                <span>✕</span>
+            </div>
+        </div>
+        <div class="win-content">
+            <h1>Внимание! Система заблокирована.</h1>
+            <p>Все ваши личные файлы, фотографии и документы зашифрованы с помощью алгоритма AES-256. Любые попытки самостоятельной расшифровки приведут к их удалению.</p>
+            
+            <div class="ransom-box">
+                Единственный способ вернуть доступ — перевести эквивалент <strong>$100 в Bitcoin</strong> на кошелек:<br>
+                <code style="font-weight: bold; user-select: text; display: block; margin-top: 4px;">1Pangol1nx...fake...wallet...address</code>
+            </div>
+
+            <p>До полного удаления ключа дешифрования с сервера осталось:</p>
+            <div class="timer-box">
+                Оставшееся время:
+                <div class="timer" id="countdown">23:59:59</div>
+            </div>
+
+            <div class="input-row">
+                <input type="text" id="unlockCode" placeholder="Введите код разблокировки...">
+                <button onclick="checkCode()">OK</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // Полноэкранный режим по первому клику
+    function goFullscreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen().catch(() => {});
+        }
+        document.getElementById('shield').style.display = 'none';
+    }
+
+    // Живые часы в трее (справа внизу)
+    setInterval(() => {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const dateStr = now.toLocaleDateString();
+        document.getElementById('clock').innerHTML = `${timeStr}<br>${dateStr}`;
+    }, 1000);
+
+    // Таймер обратного отсчета
+    let secondsLeft = 86399;
+    const timerEl = document.getElementById('countdown');
+
+    setInterval(() => {
+        let h = Math.floor(secondsLeft / 3600);
+        let m = Math.floor((secondsLeft % 3600) / 60);
+        let s = secondsLeft % 60;
+
+        timerEl.textContent = 
+            String(h).padStart(2, '0') + ':' + 
+            String(m).padStart(2, '0') + ':' + 
+            String(s).padStart(2, '0');
+
+        if (secondsLeft > 0) secondsLeft--;
+    }, 1000);
+
+    // Проверка секретного кода (пароль для отключения: "1234")
+    function checkCode() {
+        const val = document.getElementById('unlockCode').value;
+        if (val === '1234') {
+            alert('Пранк удался! Система разблокирована.');
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            location.reload();
+        } else {
+            alert('Неверный код разблокировки!');
+        }
+    }
+</script>
+
+</body>
+</html>
