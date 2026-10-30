@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typografy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="typo.css">
+</head>
+<body class="Dela-Gothic-One">
+    <h1 class="display-large">Типографіка Стани елементів</h1>
+    <h2 class="display-medium">Що таке типографіка<sup>*</sup></h2>
+    <p>
+        Типографіка — це напрям графічного дизайну і система оформлення друкованого тексту. 
+        Вона, зокрема, передбачає вибір гарнітури, кеглю, довжини рядка, міжрядкового і міжсимвольного інтервалу. 
+        Мета типографіки — зробити текст легким для сприйняття й привабливим, адже утримати увагу глядача у переповненому візуальним контентом світі може бути непростим завданням.
+    </p>
+    <p>
+        Головними аспектами типографіки є чіткість, читабельність та естетика.
+        Чіткість визначає, наскільки зручним є текст для сприйняття. Читабельність більше стосується легкості розуміння, а естетика, у свою чергу, відповідає за загальну привабливість шрифту чи комбінації шрифтів.
+    </p>
+    <p>
+        <sup>*</sup> за матеріалами <a href="https://blog.depositphotos.com/ua/pravyla-typografiky.html">https://blog.depositphotos.com/ua/pravyla-typografiky.html</a>
+    </p>
+    <h2 class="display-medium">Стани елментів</h2>
+    <p>
+        HTML - елементи можуть знаходитись у різних станах
+    </p>
+    <ul>
+        <li>hover - над елментом знаходиться курсор миші</li>
+        <li>active - елементи є вибраним (натиснення пробілу активує його)</li>
+        <li>focus - на елементі фокус введення (друк з клавіатури передаеться на нього)</li>
+        <li>checked - для чекбоксів</li>
+        <li>visited - для посилання</li>
+    </ul>
+    <p>
+        Для стилізації елементів у різному стані у CSS задаються псавдокласи 
+        що завершуються двокрапкою та назвою стану наприклад 
+        <code>button:hover {....}</code>
+    </p>
+    <p>
+        <button>Кнопка 1</button>  
+        <button>Кнопка 2</button> 
+        <input type="checkbox" id="agree" /> <label for="agree">Погоджуюсь з правилами</label>
+    </p>
+</body>
+</html>
