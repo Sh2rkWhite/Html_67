@@ -12,3 +12,18 @@
     justify-content: center;
     align-items: center;
 }
+.j-center {
+    justify-content: center;
+}
+.j-between {
+    justify-content: space-between;
+}
+.j-around {
+    justify-content: space-around;
+}
+.j-evenly {
+    justify-content: space-evenly;
+}
+.j-center {
+    justify-content: center;
+}
