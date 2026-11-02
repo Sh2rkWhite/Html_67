@@ -9,7 +9,68 @@
             border: 2px solid darkgray;
             height: 30px;
             width: 150px;
+            position: relative;
             
+        }
+        .battery::after{
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 10px;
+            background-color: darkgray;
+            right: -12px;
+            top: 5px;
+        }
+        .battery::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            background-color: green;
+            display: block;
+        }
+        .full::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            background-color: green;
+            display: block;
+        }
+        .middle::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            background-color: rgb(253, 215, 1);
+            display: block;
+            z-index: -1;
+        }
+        .empty::before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 10%;
+            background-color: rgb(85, 10, 10);
+            display: block;
+        }
+        .full::before{
+            width: 50%;
+            background-color: green;
+        }
+        .middle::before{
+            width: 50%;
+            background-color: rgb(253, 215, 1);
+        }
+        .full{
+            margin: 10px 30px;
+            width: 110px;
+            height: 20px;
+        }
+        .middle{
+            padding: 10px 30px;
+            height: 20px;
+            width: 110px;
         }
     </style>
 </head>
@@ -18,7 +79,11 @@
     <P>
         Окрім псевдокласів які задають стилі в різному стані елементів
         існують псевдоелементи які дозволяють розширити будову даного елементу   
+        Назви починаються з двох двокрапок (::) наприклад  ::before, ::after. В їх стилях обвязково 
+        вказується властивість content, яка задає вміст псевдоелемента. 
     </P>
-    <div class="battery"></div>
+    <div class="battery full"></div>
+     <div class="battery middle"></div>
+     <div class="battery empty"></div>
 </body>
 </html>
