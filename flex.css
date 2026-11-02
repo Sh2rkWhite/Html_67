@@ -1,0 +1,14 @@
+.container {
+    border: 2px solid salmon;
+    display: flex;
+}
+.item {
+    background-color: tomato;
+    height: 100px;
+    width: 100px;
+    border: 2px solid maroon;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

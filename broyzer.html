@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Custom Browser</title>
+    <style>
+        body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; height: 100vh; }
+        #toolbar { display: flex; padding: 8px; background: #f0f0f0; gap: 8px; }
+        #url-input { flex-grow: 1; padding: 4px 8px; font-size: 14px; }
+        webview { flex-grow: 1; display: flex; }
+    </style>
+</head>
+<body>
+    <div id="toolbar">
+        <button id="back">←</button>
+        <button id="forward">→</button>
+        <button id="reload">🔄</button>
+        <input type="text" id="url-input" placeholder="Введите URL и нажмите Enter..." />
+    </div>
+
+    <webview id="view" src="https://www.google.com" style="flex:1;"></webview>
+
+    <script>
+        const webview = document.getElementById('view');
+        const urlInput = document.getElementById('url-input');
+
+        document.getElementById('back').onclick = () => webview.goBack();
+        document.getElementById('forward').onclick = () => webview.goForward();
+        document.getElementById('reload').onclick = () => webview.reload();
+
+        urlInput.onkeydown = (e) => {
+            if (e.key === 'Enter') {
+                let url = urlInput.value;
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url; // Простейшая валидация
+                }
+                webview.src = url;
+            }
+        };
+
+        webview.addEventListener('did-navigate', (e) => {
+            urlInput.value = e.url;
+        });
+    </script>
+</body>
+</html>

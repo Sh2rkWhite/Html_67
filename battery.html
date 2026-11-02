@@ -36,6 +36,7 @@
             width: 50%;
             background-color: green;
             display: block;
+            z-index: -1;
         }
         .middle::before{
             content: "";
@@ -53,25 +54,9 @@
             width: 10%;
             background-color: rgb(85, 10, 10);
             display: block;
+            z-index: -1;
         }
-        .full::before{
-            width: 50%;
-            background-color: green;
-        }
-        .middle::before{
-            width: 50%;
-            background-color: rgb(253, 215, 1);
-        }
-        .full{
-            margin: 10px 30px;
-            width: 110px;
-            height: 20px;
-        }
-        .middle{
-            padding: 10px 30px;
-            height: 20px;
-            width: 110px;
-        }
+        
     </style>
 </head>
 <body>
@@ -82,8 +67,8 @@
         Назви починаються з двох двокрапок (::) наприклад  ::before, ::after. В їх стилях обвязково 
         вказується властивість content, яка задає вміст псевдоелемента. 
     </P>
-    <div class="battery full"></div>
-     <div class="battery middle"></div>
+    <div class="battery full">75%</div>
+     <div class="battery middle">45%</div>
      <div class="battery empty"></div>
 </body>
 </html>
