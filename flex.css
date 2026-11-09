@@ -1,29 +1,82 @@
 .container {
     border: 2px solid salmon;
-    display: flex;
+    display: flex; /* режим флекс-контейнера */
+}
+.h-150 {
+    height: 150px;
+}
+.h-auto {
+    height: auto !important;
 }
 .item {
     background-color: tomato;
-    height: 100px;
-    width: 100px;
     border: 2px solid maroon;
-    text-align: center;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100px;
 }
 .j-center {
-    justify-content: center;
+    justify-content: center; /* вирівнювання вздовж головної осі */
 }
 .j-between {
-    justify-content: space-between;
-}
-.j-around {
-    justify-content: space-around;
+    justify-content: space-between; /*  */
 }
 .j-evenly {
-    justify-content: space-evenly;
+    justify-content: space-evenly; /*  */
 }
-.j-center {
-    justify-content: center;
+.j-around {
+    justify-content: space-around; /*  */
+}
+.a-center {
+    align-items: center; /* вирівнювання поперек головної осі */
+}
+.a-stretch {
+    align-items: stretch; /* вирівнювання поперек головної осі */
+}
+.flex-1 {
+    background-color: lime;
+    flex: 1;
+}
+.flex-2 {
+    background-color: orange;
+    flex: 2;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 3px 3px 2px #bbb;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 250px;
+}
+.card-image {
+    background-color: chocolate;
+    /*             LT   RT  RB  LB    */
+    border-radius: 10px 10px 0px 0;
+    height: 40%;
+    width: 100%;
+}
+.card-headline, .card-subhead, .card-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.card-headline {
+    font-size: xx-large;
+    padding-top: 7px;
+}
+.card-subhead {
+    font-size: x-large;
+}
+.card-text {
+    flex: 1;
+    padding-top: 14px;
+}
+.card-footer {
+    display: flex;
+    justify-content: end;
+}
+.card-button {
+
 }

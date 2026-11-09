@@ -7,47 +7,99 @@
     <link rel="stylesheet" href="flex.css" />
 </head>
 <body>
-    <h1>Флекс елементи</h1>
+    <h1>Флекс-елементи</h1>
     <p>
-        Флекс елементи - гнучкий варіант розміщення елементів у контейнерів.
+        Флекс-елементи (або флекс-контейнери) - гнучкий варіант
+        розміщення елементів у контейнерах (в інших елементах). 
     </p>
+
     <h2>space-between</h2>
-    Вирівнються проміжки між елементами, а перший та останній елемент будуть прилипати до країв контейнера.
-    <div class="container j-between"> 
+    Крайні елементи розташовуються по краях контейнера, 
+    а проміжки між елементами рівномірні.
+    <div class="container j-between">
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
+        <div class="item">4</div>
     </div>
     
     <h2>space-around</h2>
-    Вирівнються проміжки між елементами та краями контейнера.
-    <div class="container j-around"> 
+    Вирівнюються проміжки навколо елементів (ліворуч і праворуч), 
+    тобто проміжки між елементами вдвічі більші за проміжки 
+    між краєм контейнера і елементом.
+    <div class="container j-around">
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
+        <div class="item">4</div>
     </div>
-
+    
     <h2>space-evenly</h2>
-    Вирівнються проміжки між елементами та краями контейнера.
-    <div class="container j-evenly"> 
+    Вирівнюються всі проміжки (між елементами і краями контейнера).
+    <div class="container j-evenly">
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
-    </div>
-    <h2>center</h2>
-    Вирівнються проміжки між елементами та краями контейнера.
-    <div class="container j-center"> 
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
+        <div class="item">4</div>
     </div>
 
-
-    <h1>Вирівнювання поперек основи</h1>
+    <h1>Вирівнювання поперек основної осі</h1>
     <h2>center</h2>
-    <div class="container j-evenly a-center"> 
+    <div class="container h-150 j-evenly a-center">
         <div class="item">1</div>
         <div class="item">2</div>
         <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+
+    <h2>stretch</h2>
+    <p>
+        Режим stretch "витягує" елементи, щоб вони заповнювали
+        контейнер. Але це можливо тоді, коли висота дочірніх 
+        (внутрішніх) елементів не є фіксованою. Наприклад, 100%
+    </p>
+    <div class="container h-150 j-evenly a-stretch">
+        <div class="item h-auto">1</div>
+        <div class="item h-auto">2</div>
+        <div class="item h-auto">3</div>
+        <div class="item h-auto">4</div>
+    </div>
+
+    <h1>flex - властивість</h1>
+    <p>
+        CSS властивість flex задає "еластичність" (або вагу)
+        елементу. Еластичні елементи витягуються, займаючи весь
+        відведений для нього простір. Але елементи з різною
+        вагою займають різну долю загального вільного простору
+        (пропорційно до ваги)
+    </p>
+    <div class="container h-150 j-evenly a-stretch">
+        <div class="flex-1">1</div>
+        <div class="flex-2">2</div>
+    </div>
+    <h1>Картки та макети</h1>
+    <h2>Картка</h2>
+    <p>
+        Картка (card) - один з центральних термінів
+        веб-дизайну. Широко вживається для представлення
+        різноманітних сутностей: товарів, фільмів, ігор тощо.
+    </p>
+    <div class="card">
+        <div class="card-image"></div>
+        <div class="card-headline">Headline</div>
+        <div class="card-subhead">Subhead</div>
+        <div class="card-text">
+            Самий кращий вибір тільки для вас. 
+            Поспішайте придбати
+        </div>
+        <div class="card-footer">
+            <button class="card-button">Action</button>
+            <button class="card-button">Action</button>
+        </div>
+    </div>
+    Д.З. Завершити розмітку картки. 
+    Встановити реальну картинку (зображення),
+    а також змістовні заголовки та тексти. 
+    Кнопки: Купити та Обране
 </body>
 </html>
